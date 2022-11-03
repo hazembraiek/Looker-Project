@@ -1,0 +1,31 @@
+@use "./../views/index" as *;
+@use "./../components/index" as *;
+@use  "./../layouts/index" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+ul{
+    list-style: none;
+}
+
+.arText{
+    font-family: 'Tajawal', sans-serif;
+
+}
+
+a{
+    text-decoration: none;
+}

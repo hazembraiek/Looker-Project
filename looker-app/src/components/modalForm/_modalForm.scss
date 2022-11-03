@@ -1,0 +1,83 @@
+.modalForm{
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 660px;
+    height: 100%;
+    z-index: 15;
+    transition: all 0.8s;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+    &__hedaer{
+        width: 100%;
+        background: #4955C0;
+        border-bottom: 1px solid #E8E8E8;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px 15px;
+        img{
+            cursor: pointer;
+        }
+        p{
+            font-weight: 500;
+            font-size: 15px;
+            color: white;
+            text-transform: capitalize;
+        }
+    }
+    &__form{
+        padding: 30px 20px;
+        height: calc(100% - 63px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.show{
+    right: 0;
+    // animation: show 1s linear;
+}
+
+@keyframes show {
+    50% {
+      right: 10px;
+    }
+    75%{
+        right: 10px;
+    }
+    100% {
+      right: 0px;
+    }
+  }
+  
+  
+
+.backscreen{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.341);
+    z-index: 15;
+}
+
+.modalForm-content{
+    height: 100%;
+}
+
+.customForm{
+    height: 100%;
+
+    form{
+        display: flex;
+        height: 100%;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+}

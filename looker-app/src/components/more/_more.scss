@@ -1,0 +1,40 @@
+.more-container{
+    &:focus{
+        outline: none;
+    }
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    right: 24px;
+    transform: translateY(97%);
+    z-index: 10;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 10px;
+    min-width: 180px;
+    row-gap: 12px;
+    display: flex;
+    flex-direction: column;
+    &-item{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        column-gap: 18px;
+        padding: 10px 20px 10px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        p{
+            font-weight: 400;
+            font-size: 16px;
+            color: #91939A;
+            white-space: nowrap;
+        }
+        &:hover{
+            background-color: #F5F5F5;
+            p{
+
+                color: black;
+            }
+        }
+    }
+}

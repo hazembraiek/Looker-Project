@@ -1,0 +1,45 @@
+.inputUpload{
+.image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+    input:not(.imageName){
+        display: none;
+    }
+    .imageName{
+        display: block;
+    }
+    &-content{
+        display: flex;
+        justify-content: space-between;
+        padding: 8px !important;
+        .buttonUpload{
+            padding: 10px;
+            background: #FF613D;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 16px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            width: 35%;
+        }
+        .imageName{
+            flex: 1;
+            font-weight: 400;
+            font-size: 15px;
+            color: #C9C9C9;
+            display: flex;
+            align-items: center;
+            &:focus{
+                outline: none;
+            }
+            span{
+                color: black;
+            }
+        }
+    }
+}

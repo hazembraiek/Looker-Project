@@ -1,0 +1,117 @@
+.tableIcons{
+    img{
+        cursor: pointer;
+    }
+}
+
+.moreIcon{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid #E8E8E8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .1s;
+    &:hover{
+        background-color: #F5F5F5;
+    }
+}
+
+.specialTd{
+    background-color: #FF613D;
+    border-radius: 36px;
+    padding: 7.5px 30px;
+    width: fit-content;
+    font-weight: 400;
+    font-size: 15px;
+    color: white;
+    white-space: nowrap;
+}
+
+.sortIcon{
+        width: 12px;
+        height: 12px;
+}
+
+.flag{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+}
+
+.TableRow{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.tableRow{
+    position: relative;
+    &:hover{
+        background-color: #f5f5f566 !important;
+    }
+}
+
+.tableCell{
+    @media only screen and (max-height: 665px)  {
+       padding: 1px 16px !important;
+      }
+}
+
+.userRportOpen{
+    color: #1CBE2B;
+}
+
+.userRportClose{
+    color: #FF613D;
+}
+
+.higlightRow{
+    color: #91939A;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.arrayContainer{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 250px;
+}
+
+.issue__container{
+    position: relative;
+    &-content{
+        max-width: 78px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 2.5px 7px;
+        position: relative;
+    }
+    span{
+        position: absolute;
+        top: -7px;
+        transform: translate(-25%, -100% );
+        left: 0;
+        padding: 5px 24px;
+        background: #FFF3F0;
+        border-radius: 16px;
+        border-radius: 36px;
+        color: black;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        white-space: nowrap;
+    }
+}
+
+.accept{
+    color: green;
+}
+.refuse{
+    color: red;
+}

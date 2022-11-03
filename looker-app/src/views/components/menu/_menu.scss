@@ -1,0 +1,82 @@
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 24px 20px 0;
+    border-bottom: 1px solid #E8E8E8;
+    &__first-section{
+        &-header{
+            margin-bottom: 4px;
+            font-weight: 400;
+            font-size: 15px;
+            color: #91939A ;
+        }
+        &-listType{
+            display: flex;
+            align-items: center;
+            column-gap: 19px;
+            p{
+                font-weight: 500;
+                font-size: 24px;
+            }
+            span{
+                font-weight: 500;
+                font-size: 16px;
+                color: #FF613D;
+                padding: 4px 12.5px;
+                border: 1px solid #FF613D;
+                border-radius: 8px;
+            }
+        }
+        &-switch-list{
+            margin-top: 18px;
+            ul{
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
+                li{
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: #91939A;
+                    padding:  0 18px 12px;
+                    cursor: pointer;
+                }
+                .activeList{
+                    border-bottom: 3px solid #4955C0;
+                    font-weight: 500;
+                    color: #4955C0;
+                }
+            }
+        }
+
+    }
+
+    &-second-section{
+        &-buttons{
+            padding-bottom: 14px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            column-gap: 18px;
+            flex-wrap: wrap;
+            row-gap: 10px;
+            
+        }
+
+    }
+    .order ,.filter{
+        .button-container{
+            background-color: white;
+            p{
+                font-weight: 400;
+                font-size: 16px;
+                color: #91939A;
+            }
+            border: 1px solid #E8E8E8;
+        }
+    }
+    .filter{
+        position: relative;
+    }
+}
+

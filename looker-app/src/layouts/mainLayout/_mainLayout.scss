@@ -1,0 +1,8 @@
+.layout{
+    max-height: 100vh;
+    display: flex;
+    .page-wrapper{
+        flex: 1;
+        max-height: 100%;
+    }
+}

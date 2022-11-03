@@ -1,0 +1,51 @@
+.button-container{
+    padding: 10px 17px;
+    background: #4955C0;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    &-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        font-size: 16px;
+        column-gap: 14px;
+        color: white;
+        user-select: none;
+    }
+}
+
+.light{
+    background: white;
+    .button-container-content{
+        color: #4955C0 !important;
+    }
+    border-color: #4955C0;
+    img{
+        filter: invert(35%) sepia(20%) saturate(3232%) hue-rotate(207deg) brightness(89%) contrast(93%);
+    }
+}
+
+.button-form{
+    width: 100%;
+    padding: 19px 29px 0;
+    .submitButton{
+        border: 1px solid #FF613D;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 14.5px;
+        width: 100%;
+        background-color: white;
+        font-family: inherit;
+        cursor: pointer;
+        p{
+            font-weight: 500;
+            font-size: 15px;
+            color: #FF613D;
+            text-transform: capitalize;
+        }
+}
+}
