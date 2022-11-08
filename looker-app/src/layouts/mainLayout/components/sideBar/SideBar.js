@@ -35,6 +35,12 @@ const pages = [
     label: "Categories",
     link: "/categories",
   },
+  {
+    id: v4(5),
+    icon: twoUserIcon,
+    label: "Suggestions",
+    link: "/suggestions",
+  },
 ];
 
 function SideBar({ setIsOpen, isOpen }) {

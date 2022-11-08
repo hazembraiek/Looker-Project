@@ -62,6 +62,7 @@ function InputSelectMultiple({
   defaultValue,
   mutiple = true,
 }) {
+  console.log({ options });
   return (
     <div className="selectInpulItem customInput">
       <label className="label">

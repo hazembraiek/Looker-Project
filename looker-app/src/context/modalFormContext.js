@@ -18,14 +18,13 @@ const modalFormContext = createContext({
 });
 
 const reducer = (state, action) => {
-  const { header, form, id, item } = action.payload;
+  const { header, form, item } = action.payload;
   switch (action.type) {
     case "show":
       return {
         ...state,
         header,
         form,
-        id,
         show: true,
         item,
         type: item ? "edit" : "create",
@@ -44,13 +43,12 @@ const reducer = (state, action) => {
 function ModalFormProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const showPopup = ({ form, header }, id, item) => {
+  const showPopup = ({ form, header }, item) => {
     dispatch({
       type: "show",
       payload: {
         form,
         header,
-        id,
         item,
       },
     });

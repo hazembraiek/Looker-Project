@@ -15,12 +15,6 @@ function Menu({
   labelButton,
   onClick,
   setActive,
-  order,
-  filter,
-  onOrder,
-  filterFields,
-  columnFields = [],
-  setColumns,
 }) {
   const [filterOpen, setFilterOpen] = useState(false);
   const [columnOpen, setColumnOpen] = useState(false);
@@ -94,11 +88,15 @@ function Menu({
               {filterOpen && <GlobalFilter filterFields={filterFields} />}
             </div>
           )} */}
-          <Button
-            icon={addIcon}
-            label={labelButton}
-            onClick={() => onClick("test", "create admin", "create new admin")}
-          />
+          {labelButton && (
+            <Button
+              icon={addIcon}
+              label={labelButton}
+              onClick={() =>
+                onClick("test", "create admin", "create new admin")
+              }
+            />
+          )}
         </div>
       </div>
     </div>

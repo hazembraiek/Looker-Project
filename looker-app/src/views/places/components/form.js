@@ -9,51 +9,73 @@ import InputUpload from "../../../components/formInputTypes/inputUpload/inputUpl
 import { FormButton } from "../../../components/button/modalButton";
 import InputSelect from "../../../components/formInputTypes/inputSelect/InputSelect";
 import GeoMap from "../../../components/map/map";
+import { updateOne } from "../../../services/protectApi";
+import { createPlace, updatePlace } from "../../../store/slices/places";
+import { convertObjectToFormData } from "../../../helpers/convertObj2FormData";
 
-function CeatePlaceForm() {
+function CreatePlaceForm() {
   const [positionPlace, setPosition] = useState("");
-  const { hidePopup, id, item, type } = useModalFormContext();
+  const { hidePopup, item, type } = useModalFormContext();
   const validate = Yup.object().shape({
-    title: Yup.string().required("Title is required"),
-    // category: Yup.string().required("category is required"),
-    latitude: Yup.string().required("latitude is required"),
-    longitude: Yup.number().required("longitude is required"),
+    name: Yup.string().required("Title is required"),
+    description: Yup.string().required("description is required"),
+    lat: Yup.string().required("latitude is required"),
+    lan: Yup.number().required("longitude is required"),
   });
+
   const [loading, setLoading] = useState("");
 
   const dispatch = useDispatch();
   const { lat, lng } = positionPlace || {};
-  console.log({ lat, lng });
 
-  const createPlace = (values) => {
-    console.log(values);
+  const createPlaceHandler = (values) => {
+    dispatch(
+      item
+        ? updatePlace({ id: item?._id, place: { ...values } })
+        : createPlace(values)
+    ).then((res) => {
+      if (!res?.error) {
+        hidePopup();
+      }
+    });
   };
 
   return (
     <div className="customForm">
       <Formik
         initialValues={{
-          title: item?.title || "",
-          category: item?.title || "qs",
-          longitude: item?.longitude || lng || "",
-          latitude: item?.latitude || lat || "",
+          name: item?.name || "",
+          category: item?.category || "",
+          description: item?.description || "",
+          lan: item?.lan || lng || "",
+          lat: item?.lat || lat || "",
         }}
         validationSchema={validate}
         onSubmit={(values) => {
-          createPlace(values);
+          console.log({ values });
+          createPlaceHandler(values);
         }}
       >
         {(formik) => {
           return (
             <Form>
               <div className="inputContainer">
-                <InputText
-                  label="Place Title"
-                  placeholder="Enter your title"
-                  reaquired={true}
-                  name="title"
-                  type="text"
-                />
+                <div className="form-row">
+                  <InputText
+                    label="Place Title"
+                    placeholder="Enter your title"
+                    reaquired={true}
+                    name="name"
+                    type="text"
+                  />
+                  <InputText
+                    label="Place Description"
+                    placeholder="Enter your description"
+                    reaquired={true}
+                    name="description"
+                    type="text"
+                  />
+                </div>
 
                 <InputSelect
                   label="Place Category"
@@ -68,7 +90,7 @@ function CeatePlaceForm() {
                     label="longitude"
                     placeholder="Enter your longitude"
                     reaquired={true}
-                    name="longitude"
+                    name="lan"
                     type="text"
                     value={lng}
                   />
@@ -76,7 +98,7 @@ function CeatePlaceForm() {
                     label="latitude"
                     placeholder="Enter your latitude"
                     reaquired={true}
-                    name="latitude"
+                    name="lat"
                     type="text"
                     value={lat}
                   />
@@ -95,4 +117,4 @@ function CeatePlaceForm() {
   );
 }
 
-export default CeatePlaceForm;
+export default CreatePlaceForm;

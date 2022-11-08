@@ -73,7 +73,4 @@ export const updateOne = (url, id = "", item) =>
   protectApi.put(`/${url}/${id}`, item);
 export const createOne = (url, data) => protectApi.post(`/${url}`, data);
 export const deleteOne = (url, id) => protectApi.delete(`/${url}/${id}`);
-export const banOne = (url, id, data) =>
-  protectApi.post(`/${url}/${id}/ban`, data);
-export const unbanOne = (url, id) => protectApi.post(`/${url}/${id}/unban`);
 export default protectApi;

@@ -1,11 +1,15 @@
 import React from "react";
 import { useModalFormContext } from "../../context/modalFormContext";
-import CeatePlaceForm from "../../views/places/components/form";
+import CreatePlaceForm from "./../../views/places/components/form";
 
 import closeIcon from "./../../assets/icons/CloseWhite.png";
+import ProductsForm from "../../views/products/components/form";
+import CategoriesForm from "../../views/categories/components/form";
 
 const Forms = {
-  createPlace: CeatePlaceForm,
+  createPlace: CreatePlaceForm,
+  createProduct: ProductsForm,
+  createCategory: CategoriesForm,
 };
 
 function ModalForm() {

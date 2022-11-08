@@ -12,7 +12,7 @@ export const placesListColumn = [
   {
     id: v4(5),
     heading: "Title",
-    value: "title",
+    value: "name",
     show: true,
   },
   {
@@ -20,17 +20,18 @@ export const placesListColumn = [
     heading: "Category",
     value: "category",
     show: true,
+    nestedLabel: "name",
   },
   {
     id: v4(5),
     heading: "Longitude",
-    value: "longitude",
+    value: "lan",
     show: true,
   },
   {
     id: v4(5),
     heading: "Latitude",
-    value: "latitude",
+    value: "lat",
     show: true,
   },
   { id: v4(5), heading: "Action", type: "action" },
@@ -48,7 +49,7 @@ export const requestPlacesListColumn = [
   {
     id: v4(5),
     heading: "Title",
-    value: "title",
+    value: "name",
     show: true,
   },
   {
@@ -56,23 +57,18 @@ export const requestPlacesListColumn = [
     heading: "Category",
     value: "category",
     show: true,
+    nestedLabel: "name",
   },
   {
     id: v4(5),
     heading: "Longitude",
-    value: "longitude",
+    value: "lan",
     show: true,
   },
   {
     id: v4(5),
     heading: "Latitude",
-    value: "latitude",
-    show: true,
-  },
-  {
-    id: v4(5),
-    heading: "user",
-    value: "user",
+    value: "lat",
     show: true,
   },
   {
@@ -80,24 +76,73 @@ export const requestPlacesListColumn = [
     heading: "status",
     value: "status",
     show: true,
-    1: { label: "accepted", className: "accept" },
-    2: { label: "refused", className: "refuse" },
-    3: { label: "in review...", className: "inreview" },
+    1: { label: "refused", className: "refuse" },
+    2: { label: "in review...", className: "inreview" },
+    3: { label: "accepted", className: "accept" },
     type: "bool",
   },
   { id: v4(5), heading: "Action", type: "action" },
 ];
 
-// {
-//   _id: "220.142.55.28/27",
-//   title: "Daune",
-//   category: "Drywall & Acoustical (MOB)",
-//   longitude: 49.3550162,
-//   latitude: -32.9867567,
-//   status: true,
-//   user: "a5a5:3761:2c1d:caec:6613:e411:92e0:87be/125",
-// },
+export const porductsListColumn = [
+  { id: v4(5), type: "radio" },
+  {
+    id: v4(5),
+    heading: "Product ID",
+    value: "_id",
+    className: "higlightRow",
+    show: true,
+  },
+  {
+    id: v4(5),
+    heading: "Icon",
+    value: "img",
+    type: "img",
+    className: "flag",
+    show: true,
+  },
+  {
+    id: v4(5),
+    heading: "Title",
+    value: "name",
+    show: true,
+  },
 
+  { id: v4(5), heading: "Action", type: "action" },
+];
+
+export const categoriesListColumn = [
+  { id: v4(5), type: "radio" },
+  {
+    id: v4(5),
+    heading: "Category ID",
+    value: "_id",
+    className: "higlightRow",
+    show: true,
+  },
+  {
+    id: v4(5),
+    heading: "Icon",
+    value: "img",
+    type: "img",
+    className: "flag",
+    show: true,
+  },
+  {
+    id: v4(5),
+    heading: "Title",
+    value: "name",
+    show: true,
+  },
+
+  { id: v4(5), heading: "Action", type: "action" },
+];
+
+// createdAt: "2022-11-05T13:11:44.011Z";
+// img: "https://res.cloudinary.com/dbzioodo9/image/upload/v1667653903/categories/jb4qt70euejklda1hb6h.jpg";
+// name: "gas station";
+// products: (2)[("6364e5e99447f4058611e570", "6364e5a99447f4058611e56c")];
+// updatedAt: "2022-11-06T17:35:10.723Z";
 export const usersListColumns = [
   { id: v4(5), type: "radio" },
   {

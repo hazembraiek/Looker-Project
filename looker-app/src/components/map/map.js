@@ -14,6 +14,7 @@ function GeoMap({ positions = [], setPosition }) {
   // latitude: 35.8362217;
   // longitude: 10.6028225;
   const mapContainer = useRef(null);
+  console.log({ positions });
   const [positionsRe, setPostions] = useState([
     ...positions,
     {
@@ -21,6 +22,7 @@ function GeoMap({ positions = [], setPosition }) {
       lat: coords?.latitude || 35.8362217,
     },
   ]);
+  console.log({ positionsRe });
   const map = useRef(null);
   const [lng] = useState(10.6028225);
   const [lat] = useState(35.8362217);
@@ -44,13 +46,20 @@ function GeoMap({ positions = [], setPosition }) {
   }, []);
 
   useEffect(() => {
-    positionsRe.forEach(({ lng, lat }) => {
+    console.log({ positions });
+    [
+      ...positions,
+      {
+        lan: coords?.longitude || 10.6028225,
+        lat: coords?.latitude || 35.8362217,
+      },
+    ]?.forEach(({ lan, lat }) => {
       const marker = new maplibregl.Marker({ color: "#FF0000" })
         .setLngLat([lng, lat])
         .addTo(map.current);
     });
-    console.log({ positionsRe });
-  }, [positionsRe]);
+    // console.log({ positions });
+  }, [positions]);
 
   return (
     <div className="map-wrap">

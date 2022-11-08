@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import GeoMap from "../../components/map/map";
+import { getPlaces } from "../../store/slices/places";
 const mock = [
   {
     lat: 39.940646,
@@ -83,9 +85,14 @@ const mock = [
   },
 ];
 function Home() {
+  const dispatch = useDispatch();
+  const { places, error, loading } = useSelector((state) => state.places);
+  useEffect(() => {
+    if (places?.length == 0) dispatch(getPlaces());
+  }, [places]);
   return (
     <div className="home">
-      <GeoMap positions={mock} />
+      <GeoMap positions={places} />
     </div>
   );
 }

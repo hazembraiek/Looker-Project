@@ -6,58 +6,43 @@ import { porductsListColumn } from "../../constant/ColumnsTable";
 import { productFormData } from "../../constant/ModalFormTypes";
 import { useModalFormContext } from "../../context/modalFormContext";
 import TableLayout from "../../layouts/tableLayout/TableLayout";
-import { deleteProduct, getProducts } from "../../store/slices/products";
+import {
+  acceptSuggestions,
+  deleteSuggestions,
+  getSuggestions,
+} from "../../store/slices/suggestions";
+
 import Menu from "../components/menu/Menu";
 
 const list = [
-  { _id: "true", title: "Products List", active: true },
+  { _id: "1", title: "place Suggestions", active: true },
+  { _id: "2", title: "category Suggestions", active: true },
+  { _id: "3", title: "product Suggestions", active: true },
   // { _id: "false", title: "Request Products" },
 ];
 
-function Products() {
+function Suggestions() {
   const [switchedList, setSwitchedList] = useState(list);
-  const [all, setAll] = useState("true");
+  const [all, setAll] = useState("1");
   const { showPopup } = useModalFormContext();
-  const { products, error, loading } = useSelector((state) => state.products);
+  const { suggestions, error, loading } = useSelector(
+    (state) => state.suggestions
+  );
   const dispatch = useDispatch();
 
-  const requestPlacesActions = [
-    {
-      icon: "",
-      label: "Delete",
-      action: (item) => {
-        console.log("Delete", { item });
-      },
-    },
+  const suggesionsActions = [
     {
       icon: "",
       label: "Accept",
       action: (item) => {
-        console.log("Accept", { item });
-      },
-    },
-    {
-      icon: "",
-      label: "Refuse",
-      action: (item) => {
-        console.log("Refuse", { item });
-      },
-    },
-  ];
-
-  const porductActions = [
-    {
-      icon: "",
-      label: "Edit",
-      action: (item) => {
-        showPopup(productFormData, item);
+        dispatch(acceptSuggestions(item?._id));
       },
     },
     {
       icon: "",
       label: "Delete",
       action: (item) => {
-        dispatch(deleteProduct(item?._id));
+        dispatch(deleteSuggestions(item?._id));
       },
     },
   ];
@@ -68,23 +53,16 @@ function Products() {
         item._id == all ? { ...item, active: true } : { ...item, active: false }
       )
     );
-    if (all == "true") {
-      if (products?.length == 0) {
-        dispatch(getProducts());
-      }
-    }
-  }, [all]);
-  console.log({ products });
+
+    dispatch(getSuggestions({ type: +all }));
+  }, [all, suggestions]);
+  console.log({ suggestions });
   return (
-    <div className="products">
+    <div className="suggestions">
       <Menu
-        title="Products List"
-        description="Products"
-        number={products?.length}
-        labelButton="Add New Product"
-        onClick={() => {
-          showPopup(productFormData);
-        }}
+        title="Suggesions List"
+        description="Suggesions"
+        number={suggestions?.length}
         switchList={switchedList}
         setActive={(id) => setAll(id)}
       />
@@ -93,8 +71,8 @@ function Products() {
           <div className="data-container-content-table">
             <MuiTable
               columns={all == "true" ? porductsListColumn : []}
-              data={all == "true" ? products : []}
-              tableActions={all == "true" ? porductActions : []}
+              data={all == "true" ? suggestions : []}
+              tableActions={all == "true" ? suggesionsActions : []}
             />
           </div>
         </LoadingView>
@@ -103,4 +81,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Suggestions;

@@ -101,6 +101,11 @@ const routes = [
     component: lazy(() => import("./views/categories/categories")),
   },
   {
+    path: "/suggestions",
+    layout: MainLayout,
+    component: lazy(() => import("./views/suggestions/suggestions")),
+  },
+  {
     path: "*",
     component: lazy(() => import("./views/notFound/notFound")),
   },
