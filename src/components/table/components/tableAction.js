@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import More from "../../more/More";
-import moreIcon from "./../../../assets/icons/More.png";
+import moreIcon from "../../../assets/icons/More.png";
 
 function TableAction({ tableActions, data }) {
   const [moreOpen, setMoreOpen] = useState(false);

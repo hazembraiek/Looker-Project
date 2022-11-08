@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import subLinkIcon from "./../../../../assets/icons/subLink.svg";
+import subLinkIcon from "../../../../assets/icons/subLink.svg";
 
 const SideBarItem = ({ route, setIsOpen, isOpen }) => {
   const [open, setOpen] = useState(false);

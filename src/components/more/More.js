@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import test from "./../../assets/icons/Setting.png";
+import test from "../../assets/icons/Setting.png";
 
 function More({ actionsList, itemID, setMoreOpen }) {
   useEffect(() => {

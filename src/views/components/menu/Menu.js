@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import addIcon from "./../../../assets/icons/Add.png";
-import filterIcon from "./../../../assets/icons/Setting.png";
-import columnIcon from "./../../../assets/icons/Columns.png";
-import settingIcon from "./../../../assets/icons/Setting - 2.svg";
+import addIcon from "../../../assets/icons/Add.png";
+import filterIcon from "../../../assets/icons/Setting.png";
+import columnIcon from "../../../assets/icons/Columns.png";
+import settingIcon from "../../../assets/icons/Setting - 2.svg";
 import Button from "../../../components/button/Button";
 // import GlobalFilter from "../../../components/GlobalFilter/GlobalFilter";
 // import GlobalColumnControll from "../../../components/GlobalColumnControll/GlobalColumnControll";

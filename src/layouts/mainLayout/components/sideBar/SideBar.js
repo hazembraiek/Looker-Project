@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { v4 } from "uuid";
-import logoIcon from "./../../../../assets/icons/logo2.png";
-import menuIcon from "./../../../../assets/icons/Menu.png";
-import twoUserIcon from "./../../../../assets/icons/Two-user.png";
+import logoIcon from "../../../../assets/icons/logo2.png";
+import menuIcon from "../../../../assets/icons/Menu.png";
+import twoUserIcon from "../../../../assets/icons/Two-user.png";
 import SideBarItem from "../SidebarItem/SidebarItem";
 import { useDispatch } from "react-redux";
 
