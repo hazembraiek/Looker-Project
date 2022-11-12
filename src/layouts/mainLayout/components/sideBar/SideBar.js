@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { v4 } from "uuid";
 import logoIcon from "../../../../assets/icons/logo2.png";
 import menuIcon from "../../../../assets/icons/Menu.png";
-import twoUserIcon from "../../../../assets/icons/Two-user.png";
+import placesIcon from "../../../../assets/icons/trophy 1.png";
+import productIcon from "../../../../assets/icons/Work.png";
+import catIcon from "../../../../assets/icons/Checklist2.png";
 import SideBarItem from "../SidebarItem/SidebarItem";
 import { useDispatch } from "react-redux";
 
@@ -10,37 +12,28 @@ const pages = [
   { id: v4(5), icon: menuIcon, label: "Dashboard", link: "/dashboard" },
   {
     id: v4(5),
-    icon: twoUserIcon,
-    label: "Users Type",
-    routes: [
-      { label: "admin", link: "/admins" },
-      { label: "users", link: "/users" },
-    ],
-  },
-  {
-    id: v4(5),
-    icon: twoUserIcon,
+    icon: placesIcon,
     label: "Places",
     link: "/places",
   },
   {
     id: v4(5),
-    icon: twoUserIcon,
+    icon: productIcon,
     label: "Products",
     link: "/products",
   },
   {
     id: v4(5),
-    icon: twoUserIcon,
+    icon: catIcon,
     label: "Categories",
     link: "/categories",
   },
-  {
-    id: v4(5),
-    icon: twoUserIcon,
-    label: "Suggestions",
-    link: "/suggestions",
-  },
+  // {
+  //   id: v4(5),
+  //   icon: twoUserIcon,
+  //   label: "Suggestions",
+  //   link: "/suggestions",
+  // },
 ];
 
 function SideBar({ setIsOpen, isOpen }) {

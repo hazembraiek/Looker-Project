@@ -7,10 +7,10 @@ export const RenderRoutes = ({ routes = [] }) => {
   const { user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  //   console.log(process.env.REACT_APP_BASE_NODE_ENV);
-  //   if (process.env.REACT_APP_BASE_NODE_ENV != "development") {
-  //     console.log = () => {};
-  //   }
+  console.log(process.env.REACT_APP_BASE_NODE_ENV);
+  if (process.env.REACT_APP_BASE_NODE_ENV != "development") {
+    console.log = () => {};
+  }
   useEffect(() => {
     const url = pathname;
     const publicPaths = ["/login"];

@@ -84,7 +84,7 @@ function Places() {
       <Menu
         title="Places List"
         description="Places"
-        number={100}
+        number={places?.length}
         labelButton="Add New Place"
         onClick={() => {
           showPopup(createPlaceFormData);

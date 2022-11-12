@@ -21,10 +21,9 @@ function Login() {
     setLoading(true);
     setError(false);
     const res = await login(email, password);
-    // if (!res) {
-    //   showNotif("credentials not Correct");
-    //   setError(true);
-    // } else showNotif("login success", "success");
+    if (!res) {
+      setError(true);
+    }
     setLoading(false);
   };
 

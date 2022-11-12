@@ -194,7 +194,7 @@ function MuiTable({ columns, data = [], tableActions, handleDragEnd }) {
           </Table>
         </TableContainer>
       ) : (
-        <p>DataEmpty</p>
+        <p className="isEmpty">There is not data</p>
       )}
     </>
   );

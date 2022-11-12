@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 // import Loading from "../../../../components/loadin/Loading";
@@ -12,6 +12,8 @@ import GeoMap from "../../../components/map/map";
 import { updateOne } from "../../../services/protectApi";
 import { createPlace, updatePlace } from "../../../store/slices/places";
 import { convertObjectToFormData } from "../../../helpers/convertObj2FormData";
+import { useSelector } from "react-redux";
+import { getCategories } from "../../../store/slices/categories";
 
 function CreatePlaceForm() {
   const [positionPlace, setPosition] = useState("");
@@ -23,12 +25,23 @@ function CreatePlaceForm() {
     lan: Yup.number().required("longitude is required"),
   });
 
+  const dispatch = useDispatch();
+
+  const { categories } = useSelector((state) => state.categories);
+  useEffect(() => {
+    if (categories?.length == 0) dispatch(getCategories());
+  }, []);
   const [loading, setLoading] = useState("");
 
-  const dispatch = useDispatch();
+  const options = categories?.map((category) => {
+    return { label: category?.name, value: category?._id };
+  });
+  console.log({ categories, options });
+
   const { lat, lng } = positionPlace || {};
 
   const createPlaceHandler = (values) => {
+    console.log({ values });
     dispatch(
       item
         ? updatePlace({ id: item?._id, place: { ...values } })
@@ -45,7 +58,7 @@ function CreatePlaceForm() {
       <Formik
         initialValues={{
           name: item?.name || "",
-          category: item?.category || "",
+          category: item?.category?._id || "",
           description: item?.description || "",
           lan: item?.lan || lng || "",
           lat: item?.lat || lat || "",
@@ -83,6 +96,7 @@ function CreatePlaceForm() {
                   reaquired={true}
                   name="category"
                   type="text"
+                  options={options}
                 />
 
                 <div className="form-row">
