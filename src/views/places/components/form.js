@@ -36,9 +36,12 @@ function CreatePlaceForm() {
   const options = categories?.map((category) => {
     return { label: category?.name, value: category?._id };
   });
-  console.log({ categories, options });
+  console.log({ item });
 
   const { lat, lng } = positionPlace || {};
+
+  // lan: 10.5965369;
+  // lat;
 
   const createPlaceHandler = (values) => {
     console.log({ values });
@@ -52,6 +55,8 @@ function CreatePlaceForm() {
       }
     });
   };
+
+  console.log({ lan: item?.lan, lat: item?.lat });
 
   return (
     <div className="customForm">
@@ -119,7 +124,10 @@ function CreatePlaceForm() {
                 </div>
 
                 <div className="mapContainer">
-                  <GeoMap setPosition={setPosition} />
+                  <GeoMap
+                    setPosition={setPosition}
+                    positions={[{ lan: item?.lan, lat: item?.lat }]}
+                  />
                 </div>
               </div>
               <FormButton label={`${type} place`} />

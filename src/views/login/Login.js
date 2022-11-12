@@ -36,7 +36,7 @@ function Login() {
         <div className="login__container-header">
           <p className="title">Log into your Account</p>
           <p className="description">
-            Welcome to lissene backoffice, where you can manage all language app
+            Welcome to looker backoffice, where you can manage all language app
             content.
           </p>
         </div>

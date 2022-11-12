@@ -97,8 +97,8 @@ function CategoriesForm() {
                   formik={formik}
                 />
                 <InputSelectMultiple
-                  label="Keyword"
-                  placeholder="Add your keyword"
+                  label="Products"
+                  placeholder="Add your products"
                   name="products"
                   options={options}
                   defaultValue={defaultOptions}

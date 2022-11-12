@@ -24,6 +24,12 @@ export const placesListColumn = [
   },
   {
     id: v4(5),
+    heading: "Description",
+    value: "description",
+    show: true,
+  },
+  {
+    id: v4(5),
     heading: "Longitude",
     value: "lan",
     show: true,
@@ -138,11 +144,6 @@ export const categoriesListColumn = [
   { id: v4(5), heading: "Action", type: "action" },
 ];
 
-// createdAt: "2022-11-05T13:11:44.011Z";
-// img: "https://res.cloudinary.com/dbzioodo9/image/upload/v1667653903/categories/jb4qt70euejklda1hb6h.jpg";
-// name: "gas station";
-// products: (2)[("6364e5e99447f4058611e570", "6364e5a99447f4058611e56c")];
-// updatedAt: "2022-11-06T17:35:10.723Z";
 export const usersListColumns = [
   { id: v4(5), type: "radio" },
   {

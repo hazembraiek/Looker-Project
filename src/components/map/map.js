@@ -11,18 +11,9 @@ function GeoMap({ positions = [], setPosition }) {
       },
       userDecisionTimeout: 5000,
     });
-  // latitude: 35.8362217;
-  // longitude: 10.6028225;
+
   const mapContainer = useRef(null);
-  console.log({ positions });
-  const [positionsRe, setPostions] = useState([
-    ...positions,
-    {
-      lng: coords?.longitude || 10.6028225,
-      lat: coords?.latitude || 35.8362217,
-    },
-  ]);
-  console.log({ positionsRe });
+  const [positionsRe, setPostions] = useState([...positions]);
   const map = useRef(null);
   const [lng] = useState(10.6028225);
   const [lat] = useState(35.8362217);
@@ -30,10 +21,17 @@ function GeoMap({ positions = [], setPosition }) {
   const [API_KEY] = useState("gAtNSepJNEfyMqVA5zCF");
 
   useEffect(() => {
+    if (coords)
+      new maplibregl.Marker({ color: "green" })
+        .setLngLat([coords?.longitude, coords?.latitude])
+        .addTo(map.current);
+  }, [coords]);
+
+  useEffect(() => {
     if (map.current) return; //stops map from intializing more than once
     map.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: `https://api.maptiler.com/maps/streets/style.json?key=${API_KEY}`,
+      style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${API_KEY}#15.9/35.72517/10.71610`,
       center: [lng, lat],
       zoom: zoom,
     });
@@ -41,25 +39,20 @@ function GeoMap({ positions = [], setPosition }) {
     map?.current?.on("click", function (e) {
       setPosition(e.lngLat);
       const { lat, lng } = e.lngLat || {};
-      setPostions([{ lng, lat }]);
+      setPostions([{ lan: lng, lat }]);
     });
   }, []);
 
   useEffect(() => {
-    console.log({ positions });
-    [
-      ...positions,
-      {
-        lan: coords?.longitude || 10.6028225,
-        lat: coords?.latitude || 35.8362217,
-      },
-    ]?.forEach(({ lan, lat }) => {
-      const marker = new maplibregl.Marker({ color: "#FF0000" })
-        .setLngLat([lng, lat])
-        .addTo(map.current);
+    console.log({ positionsRe });
+    [...positionsRe]?.forEach((pos) => {
+      const { lan, lat } = pos || {};
+      if (lan && lat)
+        new maplibregl.Marker({ color: "#FF0000" })
+          .setLngLat([lan, lat])
+          .addTo(map.current);
     });
-    // console.log({ positions });
-  }, [positions]);
+  }, [positionsRe]);
 
   return (
     <div className="map-wrap">

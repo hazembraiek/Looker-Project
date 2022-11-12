@@ -24,12 +24,14 @@ function ProductsForm() {
   const [loading, setLoading] = useState("");
 
   const dispatch = useDispatch();
-
   const createProductHandler = (values) => {
     dispatch(
       item
-        ? updateProduct({ id: item?._id, product: { ...values } })
-        : createProduct(values)
+        ? updateProduct({
+            id: item?._id,
+            product: convertObjectToFormData(values),
+          })
+        : createProduct(convertObjectToFormData(values))
     ).then((res) => {
       if (!res?.error) {
         hidePopup();
@@ -42,11 +44,10 @@ function ProductsForm() {
       <Formik
         initialValues={{
           name: item?.name || "",
-          icon: item?.img || "",
+          img: item?.img || "",
         }}
         validationSchema={validate}
         onSubmit={(values) => {
-          console.log({ values });
           createProductHandler(values);
         }}
       >

@@ -5,6 +5,7 @@ import menuIcon from "../../../../assets/icons/Menu.png";
 import placesIcon from "../../../../assets/icons/trophy 1.png";
 import productIcon from "../../../../assets/icons/Work.png";
 import catIcon from "../../../../assets/icons/Checklist2.png";
+import twoUserIcon from "../../../../assets/icons/Add.png";
 import SideBarItem from "../SidebarItem/SidebarItem";
 import { useDispatch } from "react-redux";
 
@@ -28,12 +29,12 @@ const pages = [
     label: "Categories",
     link: "/categories",
   },
-  // {
-  //   id: v4(5),
-  //   icon: twoUserIcon,
-  //   label: "Suggestions",
-  //   link: "/suggestions",
-  // },
+  {
+    id: v4(5),
+    icon: twoUserIcon,
+    label: "Suggestions",
+    link: "/suggestions",
+  },
 ];
 
 function SideBar({ setIsOpen, isOpen }) {

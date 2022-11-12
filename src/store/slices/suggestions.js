@@ -53,19 +53,23 @@ const suggestionsSlice = createSlice({
       state.loading = true;
     },
     [getSuggestions.fulfilled]: (state, { payload }) => {
-      state.suggestions = JSON.parse(payload.payload.suggestions.data);
+      state.suggestions = payload.payload.suggestions.map((sugg) => {
+        const data = JSON.parse(sugg.data);
+        const { id } = data;
+        return { _id: id, ...data, suggestionID: sugg?._id };
+      });
       state.loading = false;
     },
     [getSuggestions.rejected]: (state, { payload }) => {
       state.error = payload;
       state.loading = false;
     },
-    [acceptSuggestions.fulfilled]: (state, { payload }) => {
-      state.suggestions = [...state.suggestions, payload.suggestion];
-    },
+    // [acceptSuggestions.fulfilled]: (state, { payload }) => {
+    //   state.suggestions = [...state.suggestions, payload.suggestion];
+    // },
     [deleteSuggestions.fulfilled]: (state, { payload }) => {
       state.suggestions = state.suggestions.filter(
-        (suggestion) => suggestion._id !== payload.id
+        (suggestion) => suggestion.suggestionID !== payload.id
       );
     },
   },
